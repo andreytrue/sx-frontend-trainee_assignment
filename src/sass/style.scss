@@ -122,7 +122,7 @@
 .item__header {
   font-size: 18px;
   font-weight: 600px;
-  line-height: 24px;
+  line-height: 28px;
   padding: 0;
   margin: 0;
 }
@@ -153,7 +153,7 @@
   left: -18px;
   width: 13px;
   height: 13px;
-  background-image: url('./img/clock.svg');
+  background-image: url('../img/clock.svg');
 }
 
 .item__data-author::before {
@@ -163,7 +163,7 @@
   left: -17px;
   width: 13px;
   height: 13px;
-  background-image: url('./img/user.svg');
+  background-image: url('../img/user.svg');
 }
 
 .item__data-page::before {
@@ -173,7 +173,7 @@
   left: -19px;
   width: 13px;
   height: 13px;
-  background-image: url('./img/link.svg');
+  background-image: url('../img/link.svg');
 }
 
 .item__data-link {
@@ -210,4 +210,34 @@
   text-decoration: none;
   margin: 0;
   padding: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.footer__item {
+  padding: 0 10px;
+  
+  &:not(:last-of-type) {
+    border-right: 1px solid #b1b1b1;
+  }
+}
+
+.footer__link {
+  color: #b1b1b1;
+  text-decoration: none;
+
+  &:hover {
+    color: #fb651b;
+  }
 }
