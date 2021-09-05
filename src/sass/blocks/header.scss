@@ -1,0 +1,18 @@
+.header__logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__logo-image {
+  display: block;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.header__logo-text {
+  display: block;
+  font-family: 'Open sans', sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+}

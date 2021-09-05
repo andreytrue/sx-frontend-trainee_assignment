@@ -1,0 +1,31 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog__header {
+  align-self: center;
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 30px 0;
+  color: #636363;
+}
+
+.catalog__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog__item {
+  display: flex;
+  border: 1px solid #dee9ee;
+  background-color: #ffffff;
+}
+
+.catalog__item:not(:first-of-type) {
+  border-top: none;
+}

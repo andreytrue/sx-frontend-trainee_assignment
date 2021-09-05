@@ -1,11 +1,13 @@
 import React from 'react';
+import moment from 'moment';
+
+import { getDiffTime } from '../../utils/common';
 
 function News({news}) {
-  console.log(news);
   const {by, descendants, score, time, title, url} = news;
-  // useEffect(() => {
-  //   const {by, descendants, score, time, title, url} = news;
-  // }, [news])
+
+  const diffTime = getDiffTime(time);
+  console.log(diffTime);
 
   return (
     <li className="catalog__item item">
@@ -23,7 +25,7 @@ function News({news}) {
         <h3 className="item__header">{title}</h3>
 
         <ul className="item__data">
-          <li className="item__data-point item__data-time">{time}</li>
+          <li className="item__data-point item__data-time">{diffTime} mins ago</li>
           <li className="item__data-point item__data-author">{by}</li>
           <li className="item__data-point item__data-page">
             <a href="url.com" className="item__data-link">url.com</a>
