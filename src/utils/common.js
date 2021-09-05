@@ -7,7 +7,6 @@ export const getDiffTime = (time) => {
   const newsDate = moment.unix(time);
 
   const duration = moment.duration(currTime.diff(newsDate));
-  const minutes = Math.floor(duration.asMinutes());
 
-  return minutes;
+  return Math.floor(duration.asMinutes());
 }

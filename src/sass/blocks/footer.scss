@@ -15,15 +15,15 @@
   padding: 0 10px;
   
   &:not(:last-of-type) {
-    border-right: 1px solid #b1b1b1;
+    border-right: 1px solid $link-gray;
   }
 }
 
 .footer__link {
-  color: #b1b1b1;
+  color: $link-gray;
   text-decoration: none;
 
   &:hover {
-    color: #fb651b;
+    color: $special-orange;
   }
 }

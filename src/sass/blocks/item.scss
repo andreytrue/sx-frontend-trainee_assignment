@@ -10,7 +10,7 @@
   top: 5px;
   width: 1px;
   height: 80%;
-  background-color: #dee9ee;
+  background-color: $border-gray;
 }
 
 .item__points-data {
@@ -31,7 +31,7 @@
   font-weight: 600;
   padding: 0;
   margin: 0;
-  color: #fb651b;
+  color: $special-orange;
 }
 
 .item__stat-text {
@@ -39,7 +39,7 @@
   font-weight: 400;
   padding: 0;
   margin: 0;
-  color: #a19f9f;
+  color: $light-gray;
   text-transform: uppercase;
 }
 
@@ -70,7 +70,7 @@
   position: relative;
   font-size: 14px;
   margin-right: 31px;
-  color: #a19f9f;
+  color: $light-gray;
 }
 
 .item__data-point:first-of-type {
@@ -111,7 +111,7 @@
 }
 
 .item__data-link {
-  color: #a19f9f;
+  color: $light-gray;
   text-decoration: none;
 }
 
@@ -123,24 +123,24 @@
   margin-right: 20px;
   padding: 10px 20px;
   border-radius: 20px;
-  background-color: #f3f3f3;
-  color: #b1b1b1;
+  background-color: $button-background;
+  color: $link-gray;
   cursor: pointer;
 }
 
 .item__button:hover {
-  background-color: #fb651b;
-  color: #ffffff;
+  background-color: $special-orange;
+  color: $white;
 }
 
 .item__button:hover .item__button-link {
-  color: #ffffff;
+  color: $white;
 }
 
 .item__button-link {
   font-size: 14px;
   line-height: 18px;
-  color: #b1b1b1;
+  color: inherit;
   text-decoration: none;
   margin: 0;
   padding: 0;

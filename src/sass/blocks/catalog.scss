@@ -9,7 +9,7 @@
   font-size: 24px;
   font-weight: 400;
   margin: 30px 0;
-  color: #636363;
+  color: $dark-gray-text;
 }
 
 .catalog__list {
@@ -22,8 +22,8 @@
 
 .catalog__item {
   display: flex;
-  border: 1px solid #dee9ee;
-  background-color: #ffffff;
+  border: 1px solid $border-gray;
+  background-color: $white;
 }
 
 .catalog__item:not(:first-of-type) {

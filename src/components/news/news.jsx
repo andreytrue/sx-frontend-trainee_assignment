@@ -7,7 +7,6 @@ function News({news}) {
   const {by, descendants, score, time, title, url} = news;
 
   const diffTime = getDiffTime(time);
-  console.log(diffTime);
 
   return (
     <li className="catalog__item item">
