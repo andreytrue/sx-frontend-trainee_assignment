@@ -1,12 +1,18 @@
-import React from 'react';
-import moment from 'moment';
+import React, { useState, useEffect } from 'react';
 
-import { getDiffTime } from '../../utils/common';
+import { getDiffTime, getURLSource } from '../../utils/common';
 
 function News({news}) {
+  const [source, setSource] = useState('');
   const {by, descendants, score, time, title, url} = news;
 
   const diffTime = getDiffTime(time);
+
+  useEffect(() => {
+    if (url) {
+      setSource(getURLSource(url));
+    }
+  })
 
   return (
     <li className="catalog__item item">
@@ -26,14 +32,14 @@ function News({news}) {
         <ul className="item__data">
           <li className="item__data-point item__data-time">{diffTime} mins ago</li>
           <li className="item__data-point item__data-author">{by}</li>
-          <li className="item__data-point item__data-page">
-            <a href="url.com" className="item__data-link">url.com</a>
-          </li>
+          {source && <li className="item__data-point item__data-page">
+              <a href={url} className="item__data-link">{source}</a>
+            </li>}
         </ul>
       </div>
-      <div className="item__button">
+      {source && <div className="item__button">
         <a className="item__button-link" href={url}>Read more</a>
-      </div>
+      </div>}
     </li>
   )
 }

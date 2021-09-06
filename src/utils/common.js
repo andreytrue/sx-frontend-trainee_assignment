@@ -10,3 +10,16 @@ export const getDiffTime = (time) => {
 
   return Math.floor(duration.asMinutes());
 }
+
+export const getURLSource = (url) => {
+  let source = url.replace(/^https?:\/\//i, '');
+  source = source.split('');
+  
+  for (let i = 0; i < source.length; i++) {
+    if (source[i] === '/') {
+      return source.slice(0, i).join('');
+    }
+  }
+
+  return source.join('');
+}
