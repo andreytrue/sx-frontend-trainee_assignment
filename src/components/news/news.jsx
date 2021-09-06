@@ -12,7 +12,7 @@ function News({news}) {
     if (url) {
       setSource(getURLSource(url));
     }
-  })
+  }, [url]);
 
   return (
     <li className="catalog__item item">

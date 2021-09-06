@@ -91,7 +91,7 @@
 .item__data-author::before {
   position: absolute;
   content: '';
-  top: 3px;
+  top: 4px;
   left: -17px;
   width: 13px;
   height: 13px;
@@ -113,6 +113,14 @@
 .item__data-link {
   color: $light-gray;
   text-decoration: none;
+
+  &:hover {
+    color: $special-orange;
+  }
+
+  &:active {
+    color: $link-clicked;
+  }
 }
 
 .item__button {
@@ -126,12 +134,18 @@
   background-color: $button-background;
   color: $link-gray;
   cursor: pointer;
+
+  &:hover {
+    background-color: $special-orange;
+    color: $white;
+  }
+
+  &:active {
+    background-color: $link-clicked;
+  }
 }
 
-.item__button:hover {
-  background-color: $special-orange;
-  color: $white;
-}
+.item__button
 
 .item__button:hover .item__button-link {
   color: $white;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getNews } from '../../store/selectors';
-import CatalogList from '../catalog-list/catalog-list';
 
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import CatalogList from '../catalog-list/catalog-list';
 import LoadingScreen from '../loading-screen/loading-screen';
 
 function MainScreen() {
@@ -16,9 +16,15 @@ function MainScreen() {
     )
   }
 
+  const refreshClickHandler = (evt) => {
+    evt.preventDefault();
+
+    window.location.reload();
+  }
+
   return (
     <React.Fragment>
-      <Header />
+      <Header refreshClickHandler={refreshClickHandler} />
 
       <main className="page__main main">
         <section className="main__catalog catalog">
