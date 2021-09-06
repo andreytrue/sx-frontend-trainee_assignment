@@ -1,0 +1,76 @@
+.data {
+  position: relative;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.data-point {
+  position: relative;
+  font-size: 14px;
+  margin-right: 31px;
+  color: $light-gray;
+}
+
+.data-point:first-of-type {
+  margin-left: 20px;
+}
+
+.data-time::before {
+  position: absolute;
+  content: '';
+  top: 4px;
+  left: -18px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../../img/clock.svg');
+  opacity: 50%;
+}
+
+.data-author::before {
+  position: absolute;
+  content: '';
+  top: 4px;
+  left: -17px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../../img/user.svg');
+  opacity: 50%;
+}
+
+.data-comments::before {
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: -17px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../../img/comment.svg');
+  opacity: 50%;
+  background-size: cover;
+}
+
+.data-page::before {
+  position: absolute;
+  content: '';
+  top: 4px;
+  left: -19px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../../img/link.svg');
+  opacity: 50%;
+}
+
+.data-link {
+  color: $light-gray;
+  text-decoration: none;
+
+  &:hover {
+    color: $special-orange;
+  }
+
+  &:active {
+    color: $link-clicked;
+  }
+}

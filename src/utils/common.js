@@ -26,7 +26,20 @@ export const getURLSource = (url) => {
 
 export const timeAdapter = (time) => {
   if (time > 59) {
-    const hours = time / 60;
+    const hours = Math.floor(time / 60);
+    if (hours > 1) {
+      return hours + ' hours ago';
+    } else {
+      return hours + ' hour ago';
+    }
+  } else {
+    if (time < 2 && time > 1) {
+      return time + ' min ago';
+    } else if (time > 2) {
+      return time + ' mins ago';
+    } else {
+      return 'just published';
+    }
   }
 }
 

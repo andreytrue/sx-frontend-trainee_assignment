@@ -4,13 +4,39 @@
   justify-content: flex-start;
   margin-top: 33px;
   background-color: $white;
-  padding-left: 20px;
+  padding: 20px;
   border: 1px solid #dee9ee;
 }
 
+.comments__wrapper {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dee9ee;
+}
+
+.comments__inner {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+}
+
 .comments__header {
-  padding: 15px 0;
+  padding: 0;
   margin: 0;
+  margin-right: 10px;
+}
+
+.comments__link {
+  color: $link-gray;
+  text-decoration: none;
+
+  &:hover {
+    color: $special-orange;
+  }
+
+  &:active {
+    color: $link-clicked;
+  }
 }
 
 .comments__list {
@@ -19,6 +45,6 @@
   padding: 0;
 
   &:not(:first-of-type) {
-    margin-left: 20px;
+    margin: 0 20px;
   }
 }

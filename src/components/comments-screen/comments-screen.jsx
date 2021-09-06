@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getNews, getComments } from '../../store/selectors';
-import { fetchItem } from '../../store/api-actions';
+import { useSelector } from 'react-redux';
+import { getNews } from '../../store/selectors';
+
+import { getDiffTime, getURLSource, timeAdapter } from '../../utils/common';
 
 import Header from '../header/header';
 import CommentsList from '../comments-list/comments-list';
+import Footer from '../footer/footer';
 
 function CommentsScreen() {
+  // const [source, setSource] = useState('');
   const {id} = useParams();
   const newsList = useSelector(getNews);
-  let commentsID = [];
-
   const news = newsList.find(item => item.id === Number(id));
 
-  useEffect(() => {
-    commentsID = news.kids;
-  }, []);
+  const {by, descendants, kids, time, title, url} = news;
+
+  const diffTime = getDiffTime(time);
 
   return (
     <React.Fragment>
@@ -24,49 +25,30 @@ function CommentsScreen() {
 
       <main className="page__main main">
         <section className="page__comments comments">
-          <h2 className="comments__header">{news.title}</h2>
+          <div className="comments__wrapper">
+            <div className="comments__inner">
+              <h2 className="comments__header">{ title }</h2>
+              {url && <a href={url} className="comments__link">({ getURLSource(url) })</a>}
+            </div>
 
-          <CommentsList commentsID={news.kids} parentID={news.id} />
+            <ul className="item__data data">
+              <li className="data-point data-time">{ timeAdapter(diffTime) }</li>
+              <li className="data-point data-author">{ by }</li>
+              <li className="data-point data-comments">
+                {descendants > 1
+                  ? `${descendants} comments`
+                  : `${descendants} comment`}
+              </li>
+            </ul>
+          </div>
+
+          <CommentsList commentsID={kids} parentID={Number(id)} />
         </section>
       </main>
 
+      <Footer />
     </React.Fragment>
   )
 }
 
 export default CommentsScreen;
-
-
-// function CommentsScreen() {
-//   const {id} = useParams();
-//   const newsList = useSelector(getNews);
-//   const comments = useSelector(getComments);
-//   const dispatch = useDispatch();
-
-//   const news = newsList.find(item => item.id === Number(id));
-
-//   useEffect(() => {
-//     if (news.kids.length > 0) {
-//       dispatch(fetchItem(news.kids));
-//     }
-//   }, [news, dispatch]);
-
-//   // console.log(getAllComments.flat());
-
-//   return (
-//     <React.Fragment>
-//       <Header />
-
-//       <main className="page__main main">
-//         <section className="page__comments comments">
-//           <h2 className="comments__header">{news.title}</h2>
-
-//           <CommentsList comments={comments} />
-//         </section>
-//       </main>
-
-//     </React.Fragment>
-//   )
-// }
-
-// export default CommentsScreen;

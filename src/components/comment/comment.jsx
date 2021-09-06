@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getDiffTime } from '../../utils/common';
+import { getDiffTime, timeAdapter } from '../../utils/common';
 import CommentsList from '../comments-list/comments-list';
 
 function Comment({comment}) {
@@ -17,9 +17,9 @@ function Comment({comment}) {
 
   return (
     <li className="comments__item item">
-      <ul className="item__data">
-        <li className="item__data-point item__data-time">{diffTime} mins ago</li>
-        <li className="item__data-point item__data-author">{by}</li>
+      <ul className="item__data data">
+        <li className="data-point data-time">{timeAdapter(diffTime)}</li>
+        <li className="data-point data-author">{by}</li>
       </ul>
 
       <p className="item__text">{text}</p>

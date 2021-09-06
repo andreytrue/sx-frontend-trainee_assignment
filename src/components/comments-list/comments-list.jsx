@@ -11,7 +11,7 @@ function CommentsList({commentsID, parentID}) {
   
   useEffect(() => {
     dispatch(fetchItem(commentsID));
-  }, [dispatch]);
+  }, [dispatch, commentsID]);
 
   return (
     <ul className="comments__list">

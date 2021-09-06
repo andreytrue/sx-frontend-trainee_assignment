@@ -79,71 +79,6 @@
   margin: 0;
 }
 
-.item__data {
-  position: relative;
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.item__data-point {
-  position: relative;
-  font-size: 14px;
-  margin-right: 31px;
-  color: $light-gray;
-}
-
-.item__data-point:first-of-type {
-  margin-left: 20px;
-}
-
-.item__data-time::before {
-  position: absolute;
-  content: '';
-  top: 3px;
-  left: -18px;
-  width: 13px;
-  height: 13px;
-  background-image: url('../../img/clock.svg');
-  opacity: 50%;
-}
-
-.item__data-author::before {
-  position: absolute;
-  content: '';
-  top: 4px;
-  left: -17px;
-  width: 13px;
-  height: 13px;
-  background-image: url('../../img/user.svg');
-  opacity: 50%;
-}
-
-.item__data-page::before {
-  position: absolute;
-  content: '';
-  top: 3px;
-  left: -19px;
-  width: 13px;
-  height: 13px;
-  background-image: url('../../img/link.svg');
-  opacity: 50%;
-}
-
-.item__data-link {
-  color: $light-gray;
-  text-decoration: none;
-
-  &:hover {
-    color: $special-orange;
-  }
-
-  &:active {
-    color: $link-clicked;
-  }
-}
-
 .item__button {
   display: flex;
   align-items: center;
@@ -183,5 +118,5 @@
   padding: 0;
   margin: 10px 0;
   margin-bottom: 20px;
-  padding-right: 10px;
+  padding-right: 20px;
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getDiffTime, getURLSource } from '../../utils/common';
+import { getDiffTime, getURLSource, timeAdapter } from '../../utils/common';
 
 import HasCommentsButton from '../comments-buttons/has-comments-button';
 import NoCommentsButton from '../comments-buttons/no-comments-button';
@@ -39,11 +39,11 @@ function News({news}) {
       <div className="item__info">
         <h3 className="item__header">{title}</h3>
 
-        <ul className="item__data">
-          <li className="item__data-point item__data-time">{diffTime} mins ago</li>
-          <li className="item__data-point item__data-author">{by}</li>
-          {source && <li className="item__data-point item__data-page">
-              <a href={url} className="item__data-link">{source}</a>
+        <ul className="item__data data">
+          <li className="data-point data-time">{timeAdapter(diffTime)}</li>
+          <li className="data-point data-author">{by}</li>
+          {source && <li className="data-point data-page">
+              <a href={url} className="data-link">{source}</a>
             </li>}
         </ul>
       </div>
