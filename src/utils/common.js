@@ -23,3 +23,16 @@ export const getURLSource = (url) => {
 
   return source.join('');
 }
+
+export const timeAdapter = (time) => {
+  if (time > 59) {
+    const hours = time / 60;
+  }
+}
+
+export const addKidsComments = (oldComments, newComments) => {
+  const result = oldComments;
+  result.push(...newComments);
+
+  return result;
+}

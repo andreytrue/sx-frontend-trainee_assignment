@@ -24,7 +24,7 @@ function Comment({comment}) {
 
       <p className="item__text">{text}</p>
 
-      {hasComments && <CommentsList comments={kids} />}
+      {hasComments && <CommentsList commentsID={kids} parentID={comment.id} />}
     </li>
   )
 }

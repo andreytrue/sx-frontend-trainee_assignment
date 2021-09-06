@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { loadID, loadItem, loadComment } from './action';
-import { adaptIDList } from '../utils/common';
+import { adaptIDList, addKidsComments } from '../utils/common';
 
 const initialState = {
   id: [],
@@ -17,7 +17,7 @@ const reducer = createReducer(initialState, (builder) => {
       state.news = action.payload;
     })
     .addCase(loadComment, (state, action) => {
-      state.comments = action.payload;
+      state.comments = addKidsComments(state.comments, action.payload);
     });
 });
 
