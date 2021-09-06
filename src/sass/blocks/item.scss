@@ -166,8 +166,6 @@
   }
 }
 
-.item__button
-
 .item__button:hover .item__button-link {
   color: $white;
 }
@@ -179,4 +177,11 @@
   text-decoration: none;
   margin: 0;
   padding: 0;
+}
+
+.item__text {
+  padding: 0;
+  margin: 10px 0;
+  margin-bottom: 20px;
+  padding-right: 10px;
 }

@@ -6,6 +6,7 @@ import { getNews, getComments } from '../../store/selectors';
 import { fetchItem } from '../../store/api-actions';
 
 import Header from '../header/header';
+import CommentsList from '../comments-list/comments-list';
 
 function CommentsScreen() {
   const {id} = useParams();
@@ -21,12 +22,18 @@ function CommentsScreen() {
     }
   }, [news, dispatch]);
 
-  console.log(comments);
-
   return (
-    // <h1>Hello {id}</h1>
     <React.Fragment>
       <Header />
+
+      <main className="page__main main">
+        <section className="page__comments comments">
+          <h2 className="comments__header">{news.title}</h2>
+
+          <CommentsList comments={comments} />
+        </section>
+      </main>
+
     </React.Fragment>
   )
 }
