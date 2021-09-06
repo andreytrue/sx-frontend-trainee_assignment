@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 import { getDiffTime, getURLSource } from '../../utils/common';
 
+import HasCommentsButton from '../comments-buttons/has-comments-button';
+import NoCommentsButton from '../comments-buttons/no-comments-button';
+
 function News({news}) {
   const [source, setSource] = useState('');
-  const {by, descendants, score, time, title, url} = news;
+  const [hasComments, setHasComments] = useState(false);
+
+  const {by, id, descendants, score, time, title, url} = news;
 
   const diffTime = getDiffTime(time);
 
@@ -12,7 +17,11 @@ function News({news}) {
     if (url) {
       setSource(getURLSource(url));
     }
-  }, [url]);
+
+    if (descendants > 0) {
+      setHasComments(true);
+    }
+  }, [url, descendants]);
 
   return (
     <li className="catalog__item item">
@@ -21,10 +30,11 @@ function News({news}) {
           <h3 className="item__stat-header item__points-info">{score}</h3>
           <p className="item__stat-text item__points-text">points</p>
         </div>
-        <div className="item__stat-inner item__comments">
-          <h3 className="item__stat-header item__comments-info">{descendants}</h3>
-          <p className="item__stat-text item__comments-text">comments</p>
-        </div>
+        
+        {hasComments
+          ? <HasCommentsButton descendants={descendants} id={id} />
+          : <NoCommentsButton />}
+
       </div>
       <div className="item__info">
         <h3 className="item__header">{title}</h3>

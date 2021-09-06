@@ -43,6 +43,27 @@
   text-transform: uppercase;
 }
 
+.item__stat-link {
+  display: block;
+  align-self: center;
+  text-decoration: none;
+  box-sizing: padding-box;
+  padding: 10px 0;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $special-orange;
+  }
+}
+
+.item__stat-link:hover .item__stat-header {
+  color: $white;
+}
+
+.item__stat-link:hover .item__stat-text {
+  color: $white;
+}
+
 .item__info {
   display: flex;
   flex-grow: 2;

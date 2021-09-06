@@ -1,5 +1,5 @@
 import { ApiRoute } from '../utils/const';
-import { loadID, loadItem } from './action';
+import { loadComment, loadID, loadItem } from './action';
 
 export const fetchID = () => (dispatch, _getState, api) => (
   api.get(`${ApiRoute.ID}.json`)
@@ -13,5 +13,14 @@ export const fetchItem = (id) => (dispatch, _getState, api) => {
   }
 
   Promise.all(id.map(fetchData))
-    .then(resp => dispatch(loadItem(resp)))
-};
+    .then((resp) => {
+      switch (resp[0].type) {
+        case 'story':
+          return dispatch(loadItem(resp))
+        case 'comment':
+          return dispatch(loadComment(resp))
+        default:
+          break
+      }
+    })
+}
