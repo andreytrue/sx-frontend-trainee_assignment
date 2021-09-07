@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export const adaptIDList = (list) => list.slice(0, 100);
+export const adaptIDlist = (list) => list.slice(0, 100);
 
 export const getDiffTime = (time) => {
   const currTime = moment(new Date());
@@ -11,7 +11,7 @@ export const getDiffTime = (time) => {
   return Math.floor(duration.asMinutes());
 }
 
-export const getURLSource = (url) => {
+export const getSourceByUrl = (url) => {
   let source = url.replace(/^https?:\/\//i, '');
   source = source.split('');
   

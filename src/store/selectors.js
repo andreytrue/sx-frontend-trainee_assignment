@@ -1,3 +1,3 @@
-export const getID = (state) => state.id;
-export const getNews = (state) => state.news;
+export const getIDlist = (state) => state.IDlist;
+export const getStories = (state) => state.stories;
 export const getComments = (state) => state.comments;

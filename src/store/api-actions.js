@@ -1,5 +1,5 @@
 import { ApiRoute } from '../utils/const';
-import { loadComment, loadID, loadItem } from './action';
+import { loadComment, loadID, loadStory } from './action';
 
 export const fetchID = () => (dispatch, _getState, api) => (
   api.get(`${ApiRoute.ID}.json`)
@@ -16,7 +16,7 @@ export const fetchItem = (id) => (dispatch, _getState, api) => {
     .then((resp) => {
       switch (resp[0].type) {
         case 'story':
-          return dispatch(loadItem(resp))
+          return dispatch(loadStory(resp))
         case 'comment':
           return dispatch(loadComment(resp))
         default:

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getID } from '../../store/selectors';
+import { getIDlist } from '../../store/selectors';
 import { fetchItem } from '../../store/api-actions';
 import browserHistory from '../../browser-history';
 
@@ -10,14 +10,14 @@ import { AppRoute } from '../../utils/const';
 import CommentsScreen from '../comments-screen/comments-screen';
 
 function App() {
-  const id = useSelector(getID);
+  const IDlist = useSelector(getIDlist);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (id.length > 0) {
-      dispatch(fetchItem(id));
+    if (IDlist.length > 0) {
+      dispatch(fetchItem(IDlist));
     }
-  }, [id, dispatch]);
+  }, [IDlist, dispatch]);
 
   return (
     <BrowserRouter history={ browserHistory }>

@@ -7,7 +7,7 @@
   position: absolute;
   content: '';
   right: -5px;
-  top: 5px;
+  top: 10%;
   width: 1px;
   height: 80%;
   background-color: $border-gray;
@@ -119,4 +119,8 @@
   margin: 10px 0;
   margin-bottom: 20px;
   padding-right: 20px;
+}
+
+.item__text a {
+  color: $special-orange;
 }

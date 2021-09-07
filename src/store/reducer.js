@@ -1,20 +1,20 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { loadID, loadItem, loadComment } from './action';
-import { adaptIDList, addKidsComments } from '../utils/common';
+import { loadID, loadStory, loadComment } from './action';
+import { adaptIDlist, addKidsComments } from '../utils/common';
 
 const initialState = {
-  id: [],
-  news: [],
+  IDlist: [],
+  stories: [],
   comments: [],
 };
 
 const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(loadID, (state, action) => {
-      state.id = adaptIDList(action.payload);
+      state.IDlist = adaptIDlist(action.payload);
     })
-    .addCase(loadItem, (state, action) => {
-      state.news = action.payload;
+    .addCase(loadStory, (state, action) => {
+      state.stories = action.payload;
     })
     .addCase(loadComment, (state, action) => {
       state.comments = addKidsComments(state.comments, action.payload);

@@ -1,33 +1,18 @@
 import React from 'react';
 
+import { FooterURLs } from '../../utils/const';
+
 function Footer() {
+  const FooterList = Object.values(FooterURLs);
+  
   return (
     <footer className="main__footer footer">
       <ul className="footer__list">
-        <li className="footer__item">
-          <a href="/" className="footer__link">Guidlines</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">FAQ</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">Lists</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">API</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">Security</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">Legal</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">Apply to YC</a>
-        </li>
-        <li className="footer__item">
-          <a href="/" className="footer__link">Contact</a>
-        </li>
+        {FooterList.map((item, index) => (
+          <li className="footer__item" key={item + index}>
+            <a href="/" className="footer__link">{item}</a>
+          </li>
+        ))}
       </ul>
     </footer>
   )

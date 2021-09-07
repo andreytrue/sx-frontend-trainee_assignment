@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import Markdown from 'markdown-to-jsx';
 
 import { getDiffTime, timeAdapter } from '../../utils/common';
+import { HtmlEntities } from '../../utils/const';
 import CommentsList from '../comments-list/comments-list';
 
 function Comment({comment}) {
   const [hasComments, setHasComments] = useState(false);
   const {by, text, time, kids} = comment;
+  let he = require('he');
 
   const diffTime = getDiffTime(time);
 
@@ -22,7 +25,12 @@ function Comment({comment}) {
         <li className="data-point data-author">{by}</li>
       </ul>
 
-      <p className="item__text">{text}</p>
+      <div className="item__text">
+        <Markdown 
+        children={he.decode(text)}
+        options={{ namedCodesToUnicode: HtmlEntities}}
+        />
+      </div>
 
       {hasComments && <CommentsList commentsID={kids} parentID={comment.id} />}
     </li>

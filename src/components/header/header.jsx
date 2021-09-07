@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header({refreshClickHandler}) {
+function Header({handleRefreshClick}) {
   return (
     <header className="page__header header">
       <div className="header__logo">
@@ -8,7 +8,7 @@ function Header({refreshClickHandler}) {
         <h1 className="header__logo-text">Hacker News</h1>
       </div>
 
-      <button className="header__refresh" onClick={refreshClickHandler}>Make refresh</button>
+      <button className="header__refresh" onClick={handleRefreshClick}>Make refresh</button>
     </header>
   )
 }

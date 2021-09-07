@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getNews } from '../../store/selectors';
+import { getStories } from '../../store/selectors';
 
-import { getDiffTime, getURLSource, timeAdapter } from '../../utils/common';
+import { getDiffTime, getSourceByUrl, timeAdapter } from '../../utils/common';
 
 import Header from '../header/header';
 import CommentsList from '../comments-list/comments-list';
 import Footer from '../footer/footer';
+// import LoadingScreen from '../loading-screen/loading-screen';
 
 function CommentsScreen() {
-  // const [source, setSource] = useState('');
   const {id} = useParams();
-  const newsList = useSelector(getNews);
+  const newsList = useSelector(getStories);
+
+  // if (newsList.length === 0) {
+  //   return (
+  //     <LoadingScreen />
+  //   )
+  // }
+
   const news = newsList.find(item => item.id === Number(id));
-
   const {by, descendants, kids, time, title, url} = news;
-
   const diffTime = getDiffTime(time);
 
   return (
@@ -28,7 +33,7 @@ function CommentsScreen() {
           <div className="comments__wrapper">
             <div className="comments__inner">
               <h2 className="comments__header">{ title }</h2>
-              {url && <a href={url} className="comments__link">({ getURLSource(url) })</a>}
+              {url && <a href={url} className="comments__link">({ getSourceByUrl(url) })</a>}
             </div>
 
             <ul className="item__data data">
