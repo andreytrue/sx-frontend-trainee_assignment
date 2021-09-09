@@ -39,3 +39,31 @@
     border: 1px solid $white;
   }
 }
+
+.header__link {
+  text-decoration: none;
+}
+
+.header__return {
+  display: block;
+  padding: 10px 16px;
+  margin-right: 20px;
+  background-color: $special-orange;
+  color: $white;
+  cursor: pointer;
+  border-radius: 20px;
+  box-sizing: border-box;
+  border: 1px solid $white;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $white;
+    color: $special-orange;
+  }
+
+  &:active {
+    background-color: $special-orange;
+    color: $white;
+    border: 1px solid $white;
+  }
+}

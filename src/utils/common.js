@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export const adaptIDlist = (list) => list.slice(0, 100);
+export const adaptIDList = (list) => list.slice(0, 100);
 
 export const getDiffTime = (time) => {
   const currTime = moment(new Date());

@@ -1,3 +1,9 @@
+.item {
+  &--parent {
+    cursor: pointer;
+  }
+}
+
 .item__stat {
   position: relative;
   display: flex;

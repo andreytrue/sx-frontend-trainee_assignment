@@ -8,10 +8,15 @@ import Comment from '../comment/comment';
 function CommentsList({commentsID, parentID}) {
   const comments = useSelector(getComments);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-    dispatch(fetchItem(commentsID));
-  }, [dispatch, commentsID]);
+    const isCommentInclude = comments.some(item => commentsID.includes(item.id));
+    
+    if (!isCommentInclude) {
+      dispatch(fetchItem(commentsID));
+    }
+
+  }, [dispatch, commentsID, comments]);
 
   return (
     <ul className="comments__list">
@@ -19,7 +24,7 @@ function CommentsList({commentsID, parentID}) {
         if (!comment.deleted && comment.parent === parentID) {
           return <Comment comment={comment} key={comment.id} />
         }
-        
+
         return '';
       })}
     </ul>

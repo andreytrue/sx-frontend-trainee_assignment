@@ -5,11 +5,11 @@ import { getDiffTime, getSourceByUrl, timeAdapter } from '../../utils/common';
 import HasCommentsButton from '../comments-buttons/has-comments-button';
 import NoCommentsButton from '../comments-buttons/no-comments-button';
 
-function News({news}) {
+function Story({story}) {
   const [source, setSource] = useState('');
   const [hasComments, setHasComments] = useState(false);
 
-  const {by, id, deleted, descendants, score, time, title, url} = news;
+  const {by, id, deleted, descendants, score, time, title, url} = story;
 
   const diffTime = getDiffTime(time);
 
@@ -41,10 +41,10 @@ function News({news}) {
           <h3 className="item__header">{title}</h3>
   
           <ul className="item__data data">
-            <li className="data-point data-time">{timeAdapter(diffTime)}</li>
-            <li className="data-point data-author">{by}</li>
-            {source && <li className="data-point data-page">
-                <a href={url} className="data-link">{source}</a>
+            <li className="data__point data__time">{timeAdapter(diffTime)}</li>
+            <li className="data__point data__author">{by}</li>
+            {source && <li className="data__point data__page">
+                <a href={url} className="data__link">{source}</a>
               </li>}
           </ul>
         </div>
@@ -56,4 +56,4 @@ function News({news}) {
   }
 }
 
-export default News;
+export default Story;
